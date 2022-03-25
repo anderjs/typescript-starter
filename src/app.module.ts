@@ -52,7 +52,7 @@ const config = configuration();
       ]
     }),
     ConfigModule.forRoot({
-      envFilePath: ['.env.development'],
+      envFilePath: ['.env.development', '.env'],
       isGlobal: true,
       load: [configuration]
     }),

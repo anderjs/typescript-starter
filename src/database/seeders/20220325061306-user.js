@@ -7,17 +7,22 @@ module.exports = {
    * @param {import ('sequelize').Sequelize} Sequelize
    */
   async up(queryInterface) {
-    await queryInterface.bulkInsert(
-      "Users",
-      {
-        username: "admin",
-        firstName: "Elon",
-        lastName: "Musk",
-        email: "system@nectia.com",
-        password: "$2a$10$Npl5eYahGswscob1lyhxJOjzqhQFfCOJzqtL7vWxgjRTeNIfyntMS"
-      },
-      {}
-    )
+    try {
+      await queryInterface.bulkInsert(
+        "Users",
+        [
+          {
+            username: "admin",
+            firstName: "Elon",
+            lastName: "Musk",
+            email: "system@nectia.com",
+            password: "$2a$10$Npl5eYahGswscob1lyhxJOjzqhQFfCOJzqtL7vWxgjRTeNIfyntMS"
+          },
+        ]
+      )
+    } catch (err) {
+      throw err;
+    }
   },
   /**
    * @param {import ('sequelize').QueryInterface} queryInterface

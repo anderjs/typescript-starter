@@ -7,7 +7,7 @@ export default () => ({
     port: parseInt(process.env.DATABASE_PORT) || 3306,
     username: process.env.DATABASE_USERNAME || "root",
     password: process.env.DATABASE_PASSWORD || "password",
-    database: process.env.DATABASE_NAME || "system",
+    database: process.env.DATABASE_NAME || "nectia-system",
     dialect: "mysql",
   }
 });
