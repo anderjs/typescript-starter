@@ -1,8 +1,6 @@
 /* eslint-disable prettier/prettier */
 import {
-  MiddlewareConsumer,
   Module,
-  NestModule,
   ValidationPipe
 } from "@nestjs/common"
 import { JwtModule } from '@nestjs/jwt';
@@ -10,9 +8,6 @@ import { ConfigModule } from "@nestjs/config";
 import { SequelizeModule } from "@nestjs/sequelize"
 import { APP_PIPE } from "@nestjs/core";
 
-
-// - Cors
-import cors from 'cors';
 
 // - Files
 import configuration from './config';

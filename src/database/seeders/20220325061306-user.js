@@ -1,4 +1,7 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable prettier/prettier */
+const bcrypt = require("bcrypt");
+
 "use strict"
 
 module.exports = {
@@ -16,7 +19,7 @@ module.exports = {
             firstName: "Elon",
             lastName: "Musk",
             email: "system@nectia.com",
-            password: "$2a$10$Npl5eYahGswscob1lyhxJOjzqhQFfCOJzqtL7vWxgjRTeNIfyntMS"
+            password: bcrypt.hashSync("admin", 10),
           },
         ]
       )

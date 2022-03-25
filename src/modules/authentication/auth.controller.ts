@@ -24,9 +24,15 @@ export class AuthController {
   @Post("/login")
   async login(@Body() user: LoginDto) {
     try {
-      const data = await this.service.authenticate(user.email, user.password)
+      const token = await this.service.authenticate(user.email, user.password)
 
-      return data
+      return {
+        message: "Successfully logged in",
+        response: {
+          token
+        },
+        statusCode: 200
+      }
     } catch (err) {
       throw new BadRequestException(err.message)
     }

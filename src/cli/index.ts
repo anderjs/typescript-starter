@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable @typescript-eslint/no-var-requires */
-const mysql = require("mysql2")
+const mysql = require("mysql")
 require("dotenv").config()
 
 const database = process.env.DATABASE_NAME
@@ -13,6 +13,7 @@ const connection = mysql.createConnection({
   password: process.env.DATABASE_PASSWORD
 })
 
+
 connection.query(
   "CREATE DATABASE IF NOT EXISTS ??",
   database,
@@ -22,6 +23,7 @@ connection.query(
     }
 
     console.log({
+      err,
       results,
       database,
       connection: true,
