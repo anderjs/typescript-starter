@@ -52,13 +52,13 @@ const config = configuration();
       ]
     }),
     ConfigModule.forRoot({
-      envFilePath: ['.env.development', '.env'],
+      envFilePath: ['.env'],
       isGlobal: true,
       load: [configuration]
     }),
     JwtModule.registerAsync({
       useFactory: async () => ({
-        secret: jwtConstants.secret,
+        secret: jwtConstants.secret || "secret",
         signOptions: {
           expiresIn: '1d'
         }
@@ -76,12 +76,4 @@ const config = configuration();
     }
   ]
 })
-export class AppModule implements NestModule {
-  configure(consumer: MiddlewareConsumer) {
-    consumer.apply(
-      cors('*', {
-        origin: '*'
-      })
-    )
-  }
-}
+export class AppModule {}

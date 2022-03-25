@@ -16,9 +16,11 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
       ignoreExpiration: false,
       secretOrKey: jwtKeys.secret
     })
-  }
+      }
 
   async validate (payload: { id: string, email: string }) {
+    console.log(payload);
+
     return {
       id: payload.id,
       email: payload.email

@@ -6,18 +6,20 @@ import { PassportModule } from "@nestjs/passport"
 // - Keys
 import { jwtConstants as jwtKeys } from "./auth.keys"
 
+// - Controllers
+import { AuthController } from "./auth.controller"
+
 // - Services
 import { AuthService } from "./auth.service"
 
-// - Providers
-import { UserProvider } from "../users/users.provider"
-
 // - Strategies
 import { LocalStrategy } from "./local.strategy"
-import { JwtStrategy } from "./jwt.strategy"
 
-// - Controllers
-import { AuthController } from "./auth.controller"
+// - Repositories
+import { SequelizeModule } from "@nestjs/sequelize"
+
+// - Models
+import { User } from "src/models/User.model"
 
 @Module({
   controllers: [AuthController],
@@ -28,9 +30,10 @@ import { AuthController } from "./auth.controller"
       signOptions: {
         expiresIn: "1d"
       }
-    })
+    }),
+    SequelizeModule.forFeature([User]),
   ],
-  providers: [...UserProvider, AuthService, LocalStrategy, JwtStrategy],
-  exports: [...UserProvider, AuthService, LocalStrategy, JwtStrategy]
+  providers: [AuthService, LocalStrategy],
+  exports: [AuthService]
 })
 export class AuthModule {}

@@ -15,4 +15,8 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
       passwordField: "password"
     })
   }
+  
+  async validate () {
+    return true;
+  }
 }
