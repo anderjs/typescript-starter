@@ -6,7 +6,7 @@ export class Product extends Model {
   @PrimaryKey
   @AutoIncrement
   @Column(DataType.INTEGER)
-  id: number
+  id?: number
 
   @Column(DataType.STRING)
   name: string
