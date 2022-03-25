@@ -7,8 +7,7 @@ module.exports = {
    * @param {import ('sequelize').Sequelize} Sequelize
    */
   async up(queryInterface) {
-    await queryInterface.bulkInsert(
-      "Products",
+    await queryInterface.bulkInsert("Products", [
       {
         brand: "Apple",
         name: "iPhone X",
@@ -78,14 +77,16 @@ module.exports = {
         name: "iPhone SE 2",
         sku: "123456789",
         image:
-          "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/x/iphone-x-silver-select-201809?wid=940&hei=1112&fmt=png-alpha&qlt=95&.v=1567602408000"
+          "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/x/iphone-x-silver-select-201809?wid=940&hei=1112&fmt=png-alpha&qlt=95&.v=1567602408000",
+        price: 999.99
       },
       {
         brand: "Apple",
         name: "iPhone SE 3",
         sku: "123456789",
         image:
-          "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/x/iphone-x-silver-select-201809?wid=940&hei=1112&fmt=png-alpha&qlt=95&.v=1567602408000"
+          "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/x/iphone-x-silver-select-201809?wid=940&hei=1112&fmt=png-alpha&qlt=95&.v=1567602408000",
+        price: 999.99
       },
       {
         brand: "AMD",
@@ -111,7 +112,7 @@ module.exports = {
           "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/x/iphone-x-silver-select-201809?wid=940&hei=1112&fmt=png-alpha&qlt=95&.v=1567602408000",
         price: 999.99
       }
-    )
+    ])
   },
   /**
    * @param {import ('sequelize').QueryInterface} queryInterface
